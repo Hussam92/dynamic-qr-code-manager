@@ -6,8 +6,12 @@ use App\Models\Forward;
 
 class ForwardController extends Controller
 {
-    public function __invoke(Forward $forward)
+    public function __invoke(Forward $forward): object|string
     {
-        return redirect($forward->content);
+        if (filter_var($forward->content, FILTER_VALIDATE_URL)) {
+            return redirect($forward->content);
+        }
+
+        return $forward->content;
     }
 }
