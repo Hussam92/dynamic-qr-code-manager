@@ -2,11 +2,10 @@
 
 namespace App\Filament\Pages;
 
-use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Pages\Page;
-use LaraZeus\Qr\Components\Qr;
+use LaraZeus\Qr\Facades\Qr;
 
 class QrCodeGenerator extends Page
 {
@@ -40,10 +39,7 @@ class QrCodeGenerator extends Page
         return $form
             ->statePath('data')
             ->schema([
-                Section::make()
-                    ->schema([
-                        ...\LaraZeus\Qr\Facades\Qr::getFormSchema('text', 'text-options'),
-                    ]),
+                Section::make()->schema(Qr::getFormSchema('text', 'text-options')),
             ]);
     }
 }

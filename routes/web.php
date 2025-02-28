@@ -9,4 +9,3 @@ Route::get('/', function () {
 
 Route::get('/forward/{forward}', ForwardController::class)
     ->name('forward');
-

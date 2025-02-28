@@ -21,7 +21,9 @@ use Illuminate\Support\Str;
 class Forward extends Model
 {
     protected $primaryKey = 'id';
+
     protected $keyType = 'string';
+
     public $incrementing = false;
 
     protected static function boot(): void
@@ -47,7 +49,7 @@ class Forward extends Model
         'user_id',
         'name',
         'description',
-        'content'
+        'content',
     ];
 
     public function url(): Attribute
